@@ -35,6 +35,8 @@ export class AuthService {
     return null;
   }
 
+
+  
   async logOut() {
     return await this.account.deleteSessions();
   } 
