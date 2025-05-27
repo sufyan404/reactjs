@@ -14,8 +14,12 @@ export class AuthService {
 
   // eslint-disable-next-line no-unused-vars
   async createAccount({ email, password, name }) {
-    await this.account.create(ID.unique(), email, password);
-    return this.login({ email, password });
+    const userAccount = await this.account.create(ID.unique(), email, password);
+    if (userAccount) {
+      return this.login({ email, password });
+    } else {
+      return userAccount;
+    }
   }
 
   async login({ email, password }) {
