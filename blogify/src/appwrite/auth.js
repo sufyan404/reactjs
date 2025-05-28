@@ -14,16 +14,28 @@ export class AuthService {
 
   // eslint-disable-next-line no-unused-vars
   async createAccount({ email, password, name }) {
-    const userAccount = await this.account.create(ID.unique(), email, password);
-    if (userAccount) {
-      return this.login({ email, password });
-    } else {
-      return userAccount;
+    try {
+      const userAccount = await this.account.create(
+        ID.unique(),
+        email,
+        password
+      );
+      if (userAccount) {
+        return this.login({ email, password });
+      } else {
+        return userAccount;
+      }
+    } catch (error) {
+      console.log("The system error", error);
     }
   }
 
   async login({ email, password }) {
-    return await this.account.createEmailPasswordSession(email, password);
+    try {
+      return await this.account.createEmailPasswordSession(email, password);
+    } catch (error) {
+      console.log("The system error", error);
+    }
   }
 
   async getCurrentUser() {
@@ -35,11 +47,13 @@ export class AuthService {
     return null;
   }
 
-
-  
   async logOut() {
-    return await this.account.deleteSessions();
-  } 
+    try {
+      return await this.account.deleteSessions();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 const authService = new AuthService();

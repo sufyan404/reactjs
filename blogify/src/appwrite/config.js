@@ -14,31 +14,39 @@ export class Service {
   }
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
-    return await this.databases.createDocument(
-      conf.appwriteDatabasetId,
-      conf.appwriteCollectionId,
-      slug,
-      {
-        title,
-        content,
-        featuredImage,
-        status,
-        userId,
-      }
-    );
+    try {
+      return await this.databases.createDocument(
+        conf.appwriteDatabasetId,
+        conf.appwriteCollectionId,
+        slug,
+        {
+          title,
+          content,
+          featuredImage,
+          status,
+          userId,
+        }
+      );
+    } catch (error) {
+      console.log("The system error", error);
+    }
   }
   async updatePost(slug, { title, content, featuredImage, status }) {
-    return await this.databases.updateDocument(
-      conf.appwriteDatabasetId,
-      conf.appwriteCollectionId,
-      slug,
-      {
-        title,
-        content,
-        featuredImage,
-        status,
-      }
-    );
+    try {
+      return await this.databases.updateDocument(
+        conf.appwriteDatabasetId,
+        conf.appwriteCollectionId,
+        slug,
+        {
+          title,
+          content,
+          featuredImage,
+          status,
+        }
+      );
+    } catch (error) {
+      console.log("The system error", error);
+    }
   }
   async deletePost(slug) {
     try {
