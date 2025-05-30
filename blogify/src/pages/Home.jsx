@@ -18,7 +18,7 @@ function Home() {
       <div className="w-full py-8 mt-4 text-center">
         <Container>
           <div className="flex flex-wrap">
-            <div className="p-2 w-full font-bold hover:text-gray-300">
+            <div className="p-2 w-full font-bold hover:text-red-700 text-3xl">
               No posts available. Please check back later.
             </div>
           </div>

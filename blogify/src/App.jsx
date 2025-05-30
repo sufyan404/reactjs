@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./App.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -24,10 +25,10 @@ function App() {
   }, []);
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block bg-fuchsia-300">
+      <div className="w-full block bg-fuchsia-100">
         <Header />
         <main>
-          TODO: <Outlet />
+          <Outlet />
         </main>
         <Footer />
       </div>

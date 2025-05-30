@@ -8,10 +8,16 @@ import Input from "./Input";
 import PostForm from "./PostForm";
 import RTE from "./RTE";
 import Select from "./Select";
-import Signup from "../pages/Signup";
-import Login from "../pages/Login";
+import Login from "./Login";
 import AddPost from "../pages/AddPost";
 import PostCard from "./PostCard";
+import AuthLayout from "./AuthLayout";
+import Signup from "./Signup";
+import Home from "../pages/Home";
+import AllPosts from "../pages/AllPosts";
+import EditPost from '../pages/EditPost'
+import Post from '../pages/Post'
+
 
 export {
   Header,
@@ -28,4 +34,9 @@ export {
   Login,
   AddPost,
   PostCard,
+  AuthLayout,
+  AllPosts,
+  Home,
+  EditPost,
+  Post
 };
