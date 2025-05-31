@@ -9,13 +9,15 @@ function EditPost() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    service.getPosts(slug).then((post) => {
-      if (post) {
-        setPost(post);
-      } else {
-        navigate("/");
-      }
-    });
+    if (slug) {
+      service.getPost(slug).then((post) => {
+        if (post) {
+          setPost(post);
+        }
+      });
+    } else {
+      navigate("/");
+    }
   }, [slug, navigate]);
   return post ? (
     <div className=" py-8">

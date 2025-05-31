@@ -65,7 +65,7 @@ function Signup() {
                 {...register("email", {
                   required: true,
                   validate: (value) =>
-                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.text(value) ||
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid address",
                 })}
               />
@@ -77,7 +77,9 @@ function Signup() {
                   required: true,
                 })}
               />
-              <button type="submit" className="w-full"></button>
+              <button type="submit" className="w-full">
+                Sign up
+              </button>
             </div>
           </form>
         </div>

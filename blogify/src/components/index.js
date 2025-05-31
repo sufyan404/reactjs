@@ -38,5 +38,5 @@ export {
   AllPosts,
   Home,
   EditPost,
-  Post
-};
+  Post,
+}; 

@@ -12,21 +12,26 @@ export default function Post() {
 
   const userData = useSelector((state) => state.auth.userData);
 
-  const isAuthor = post && userData ? post.userData === userData.$id : false;
+  const isAuthor = post && userData ? post.userId === userData.$id : false;
 
   useEffect(() => {
-    service.getPosts(slug).then((post) => {
-      if (post) {
+    if (slug) {
+      service.getPost(slug).then((post) => {
+        if (post) {
+          setPost(post);
+        } else {
+          navigate("/");
+        }
         setPost(post);
-      } else {
-        navigate("/");
-      }
-    });
+      });
+    } else {
+      navigate("/");
+    }
   }, [slug, navigate]);
 
   const deletePost = () => {
-    service.deletePost(post.$id).then((post) => {
-      if (post) {
+    service.deletePost(post.$id).then((status) => {
+      if (status) {
         service.deleteFile(post.featuredImage);
         navigate("/");
       }
@@ -37,15 +42,24 @@ export default function Post() {
     <div className="py-8">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img src={service.getFilePreview(post.featuredImage)} alt="service" />
+          <img
+            src={service.getFilePreview(post.featuredImage)}
+            alt={post.title}
+          />
           {isAuthor && (
             <div className="absolute right-6 top-6">
-              <Link to={`/edit/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
+              <Link to={`/edit-post/${post.$id}`}>
+                <Button
+                  bgColor="bg-green-500"
+                  className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 mr-4 mt-5"
+                >
                   Edit
                 </Button>
               </Link>
-              <button className="bg-red-500 " onClick={deletePost}>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 mt-5"
+                onClick={deletePost}
+              >
                 Delete
               </button>
             </div>

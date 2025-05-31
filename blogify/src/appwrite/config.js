@@ -16,7 +16,7 @@ export class Service {
   async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
       return await this.databases.createDocument(
-        conf.appwriteDatabasetId,
+        conf.appwriteDatabasetId, 
         conf.appwriteCollectionId,
         slug,
         {
@@ -61,22 +61,22 @@ export class Service {
       return false;
     }
   }
-  async getDocument(slug) {
+  async getPost(slug) {
     try {
-      await this.databases.getDocument(
+      return await this.databases.getDocument(
         conf.appwriteDatabasetId,
         conf.appwriteCollectionId,
         slug
       );
     } catch (error) {
-      console.log("Appwrite serive :: getPost :: error", error);
+      console.log("Appwrite service :: getDocument :: error", error);
       return false;
     }
   }
 
-  async getPosts(queries = [Query.equal("status", "equal")]) {
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-      await this.databases.getPosts(
+      await this.databases.listDocuments(
         conf.appwriteDatabasetId,
         conf.appwriteCollectionId,
         queries,
