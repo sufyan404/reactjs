@@ -20,7 +20,6 @@ export default function PostForm({ post }) {
   const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
-    console.log("Form submitted with data:", data);
     if (post) {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
@@ -127,7 +126,7 @@ export default function PostForm({ post }) {
         <Button
           type="submit"
           bgColor={post ? "bg-green-500" : undefined}
-          className="w-full"
+          className="w-24 bg-blue-500 text-white px-4 py-2 rounded-xl shadow-md hover:bg-blue-600 active:bg-blue-700 focus:outline-none font-bold text-lg"
         >
           {post ? "Update" : "Submit"}
         </Button>

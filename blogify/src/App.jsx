@@ -24,15 +24,13 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-slate-900">
-      <div className="w-full block bg-red-700 rounded-lg shadow-xl mx-auto max-w-7xl sm:my-4 md:my-8">
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
   ) : null;
 }
 

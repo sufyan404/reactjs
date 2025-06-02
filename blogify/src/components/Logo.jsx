@@ -1,6 +1,5 @@
 import React from "react";
 
-// eslint-disable-next-line no-unused-vars
 function Logo({ width = "10px" }) {
   return (
     <img

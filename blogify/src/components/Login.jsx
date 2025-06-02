@@ -29,8 +29,8 @@ function Login() {
     }
   };
   return (
-    <div className="w-full min-h-screen py-8 text-center bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col justify-center items-center">
-      <div className="p-8 bg-white rounded-xl shadow-2xl w-full max-w-96">
+    <div className="w-full m-0 text-center bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col justify-center items-center">
+      <div className="p-8 my-10 bg-white rounded-xl shadow-2xl w-full max-w-96">
         <div className="mb-2 flex justify-center items-center">
           <span className="flex justify-center w-full max-w-[100px]">
             <Logo width="100%" />
@@ -59,7 +59,7 @@ function Login() {
               type="email"
               autoComplete="email"
               className="w-full px-4 py-2 border border-gray-300 rounded-md 
-             placeholder-gray-400 placeholder:italic 
+             placeholder-gray-400 
              focus:outline-none focus:ring-2 focus:ring-blue-500 
              transition-colors duration-200"
               {...register("email", {
@@ -76,10 +76,7 @@ function Login() {
               type="password"
               placeholder="Enter password"
               autoComplete="current-password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md 
-             placeholder-gray-400 placeholder:italic 
-             focus:outline-none focus:ring-2 focus:ring-blue-500 
-             transition-colors duration-200"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none  focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
               {...register("password", {
                 required: true,
               })}
