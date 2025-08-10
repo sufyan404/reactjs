@@ -5,7 +5,7 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const addValue = () => {
-    if (counter == 0 || counter < 10) {
+    if (counter == 0 || counter < 20) {
       setCounter(prevCounter => prevCounter + 1);
       setCounter(prevCounter => prevCounter + 1);
       setCounter(prevCounter => prevCounter + 1);
