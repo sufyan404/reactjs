@@ -1,17 +1,18 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react';
+import './App.css';
 
 function App() {
   const [counter, setCounter] = useState(0);
 
   const addValue = () => {
     if (counter == 0 || counter < 10) {
-      setCounter((prevCounter) => prevCounter + 1);
-      setCounter((prevCounter) => prevCounter + 1);
-      setCounter((prevCounter) => prevCounter + 1);
-      setCounter((prevCounter) => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
     } else {
-      alert("20 se uper ni jye ga");
+      alert('20 se uper ni jye ga');
     }
   };
 
@@ -19,7 +20,7 @@ function App() {
     if (counter > 0) {
       setCounter(counter - 1);
     } else {
-      alert("0 se nichy ni jye ga");
+      alert('0 se nichy ni jye ga');
     }
   };
 
