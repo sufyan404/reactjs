@@ -13,7 +13,7 @@ function useCurrencyInfo(currency) {
         console.log(data);
         return setData(response[currency]);
       });
-  }, [currency, data]);
+  }, [currency]);
   console.log(data);
   return data;
 }
